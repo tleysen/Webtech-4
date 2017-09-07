@@ -1,0 +1,9 @@
+{% for quote in quote %}
+  <h1>{{ quote.quote_text }}</h1>
+{% endfor %}
+
+<ul>
+{% for author in author %}
+    <li>{{ author.author_text }}</li>
+{% endfor %}
+</ul>

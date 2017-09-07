@@ -1,0 +1,22 @@
+<form action="{% url 'ask' %}" method='post'>
+    {% csrf_token %}
+    <input type="text" name="question" placeholder="question ...?">
+    <input type="submit" value="ASK" >
+</form>
+
+{% if answer %}
+    Answer: {{ answer }}
+{% endif %}
+
+
+
+
+{% if latest_quote_list %}
+    <ul>
+    {% for quote in latest_quote_list %}
+        <li><a href="{% url 'quotes:detail' quote.id %}">{{ quote.quote_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No quotes are available.</p>
+{% endif %}
